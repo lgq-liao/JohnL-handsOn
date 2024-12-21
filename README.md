@@ -4,6 +4,7 @@ My NLP hand's on
 **Note: To update xxx with your actual path for the following commands**
 
 
+
 ## Task 1 
 
 1. **clone the repository into your testing PC**
@@ -34,6 +35,9 @@ Launch your browser and enter the following link into your brower following by h
 
 `http://localhost:8001/ping`
 
+or click the link [ping](http://localhost:8001/ping)
+
+
 
 # Task 2c
 
@@ -59,7 +63,6 @@ Alternatively, you can test it to use your own method,eg by curl
 
 ```bash
     $ cd xxx/JohnL-handsOn/asr
-    $ mkdir cv-valid-dev
 
     $ cp -r xxx/cv-valid-dev ./cv-valid-dev/ 
 
@@ -85,7 +88,8 @@ Alternatively, you can test it to use your own method,eg by curl
    
    **NOTE**: For GPU access, need root privileges if not config docker in rootless mode as following command. 
 
-   For more details about how to enable GPU support (CUDA) in your Docker container, pleaase refer to **How to run Docker.md**
+   For more details about how to enable GPU support (CUDA) in your Docker container, pleaase refer to [How to run Docker](asr/How%20to%20run%20Docker.md)
+
 
 ```bash
 
