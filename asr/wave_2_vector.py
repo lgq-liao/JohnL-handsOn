@@ -46,9 +46,8 @@ class asr_logger:
 
 
 model_list={
-            '0': 'facebook/wav2vec2-large-robust-ft-libri-960h',
             '1': 'facebook/wav2vec2-large-960h',
-            '2': 'model', # fine-tuned model
+            '2': 'wav2vec2-large-960h-cv', # fine-tuned model
             }
 
 def parse_argv(argv=sys.argv[1:]):
@@ -83,29 +82,6 @@ class wav2vec2_asr:
             logger = asr_logger()
         self.log = logger
         self.audio_chunk_size = audio_chunk_size
-
-    def load_data_set(self, data_dir=None):
-        path_exp = os.path.expanduser(data_dir)
-        batch = dict(speech=list(), txt=list())
-        
-        if os.path.isdir(path_exp):
-            audio_names = os.listdir(path_exp)
-            for audio in audio_names:
-                audio_path = os.path.join(path_exp, audio)
-                if os.path.isfile(audio_path):
-                    speech, rate = librosa.load(audio_path, sr=16000)
-                    batch['speech'].append(speech)
-                    batch['txt'].append(audio.split('.')[0])
-        return batch
-    def dataset_validation(self, data_dir):
-        batch = self.load_data_set(data_dir)
-        transcriptions = self.batch_recognition(batch['speech'])
-        for txt, transcrip in zip(batch['txt'], transcriptions):
-            if transcrip.lower() not in txt.lower():
-                self.log.info('\n\t transcript: {} \n\t text: {}'.format(transcrip.lower(), txt))
-            else:
-                self.log.info('transcrip match text: {}'.format(transcrip.lower(), txt))
-
     def batch_recognition(self, batchs):
         started_time = time.monotonic()
 
@@ -133,10 +109,10 @@ class wav2vec2_asr:
     
     def load_modle(self, model_index='1', use_cpu=False):
 
-        if model_index == '2':
+        if model_index == '2': # fune-tuned mode 
             curr_file_dir = pathlib.Path(__file__).resolve().parent
             model_name = model_list.get(model_index, 'facebook/wav2vec2-large-robust-ft-libri-960h')
-            model_name = os.path.join(curr_file_dir.parent, model_name)
+            model_name = os.path.join(curr_file_dir.parent, 'asr-train', model_name)
         else:
             model_name = model_list.get(model_index, 'facebook/wav2vec2-large-robust-ft-libri-960h')
         print('++++++ Selected model: {}'.format(model_name))        
@@ -148,7 +124,7 @@ class wav2vec2_asr:
 
         self.log.info('Use {} for computing'.format(self.device))
         # load model and processor
-        self.log.info('Download the lage model will take for a while depend on your network speed if it is cached.')
+        self.log.info("Download the lage model will take for a while depend on your network speed if it's not cached.")
         self.log.info('Loading model WIP, please wait ...')
 
         self.processor = Wav2Vec2Processor.from_pretrained(model_name)

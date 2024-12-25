@@ -26,6 +26,16 @@ share/python-wheels/
 *.egg
 MANIFEST
 
+#train dataset
+cv-valid-train/
+cached_dataset/
+
+#train result and logs
+results/
+logs/
+
+.vscode/
+
 # PyInstaller
 #  Usually these files are written by a python script from a template
 #  before PyInstaller builds the exe, so as to inject date/other infos into it.

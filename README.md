@@ -4,6 +4,7 @@ My NLP hand's on
 **Note: To update xxx with your actual path for the following commands**
 
 
+---
 
 ## Task 1 
 
@@ -19,6 +20,8 @@ My NLP hand's on
     $ ./dependance_install.sh
 
 ```
+
+---
 
 # Task 2b
 
@@ -37,7 +40,7 @@ Launch your browser and enter the following link into your brower following by h
 
 or click the link [ping](http://localhost:8001/ping)
 
-
+---
 
 # Task 2c
 
@@ -52,10 +55,12 @@ or click the link [ping](http://localhost:8001/ping)
 
 ```bash
     $ cd xxx/JohnL-handsOn/asr
-    $ python python cv-decode.py -a audio_sample/taken_clip.wav
+    $ python cv-decode.py -a audio_sample/taken_clip.wav
 ```
 
 Alternatively, you can test it to use your own method,eg by curl
+
+---
 
 # Task 2d
 
@@ -74,6 +79,8 @@ Alternatively, you can test it to use your own method,eg by curl
     $ cd xxx/JohnL-handsOn/asr
     $ python cv-decode.py -af ./cv-valid-dev
 ```
+
+---
 
 # Task 2e
 
@@ -96,3 +103,71 @@ Alternatively, you can test it to use your own method,eg by curl
    $ sudo docker run --gpus all --rm -p 8001:8001 asr-api # run with GPU
    $ docker run --rm -p 8001:8001 asr-api                 # run with CPU
 ```
+
+---
+
+# Task 3a
+
+1. **copy the training dataset to the trainin path**
+    ```bash
+        $ cd xxx/JohnL-handsOn/asr-train
+        
+        $ cp -r xxx/cv-valid-train ./ 
+        $ cp -r xxx/cv-valid-train.csv ./
+    ```
+
+2. **Run cv-train-2a.ipynb with notebook**
+  Please refer to [**cv-train-2a.ipynb**](asr-train/cv-train-2a.ipynb) for the details 
+
+---
+
+# Task 3b
+
+1. You may run **cv-train-2a.ipynb** to train the model with **truncate** dataset as following
+   `df = df.head(1000) (remove this for full training)`
+
+2. To avoid the training overhead within notebook, alternatively, you may train the model with pure Python with following commands
+    ```bash
+        $ cd xxx/JohnL-handsOn/asr-train
+        $ python train-cv.py
+    ```
+
+    **Noted**: 
+    - the train dataset will be processed and catched once only, relaunch the train-cv.py for the training after the dataset cached.
+    - the fune-tuned model will be saved in folder **wav2vec2-large-960h-cv**
+
+---
+# Task 3c
+
+1. **copy cv-valid-test dataset and the csv**
+
+```bash
+    $ cd xxx/JohnL-handsOn/asr-train
+    
+    $ cp -r xxx/cv-valid-test ./ 
+    $ cp -r xxx/cv-valid-test.csv ./cv-valid-test/
+```
+2. **Launch asr_aip & load the fune-tuning model with following commands**
+
+```bash
+    # the following input parameter -mi
+    # 1 is for choosing  'facebook/wav2vec2-large-960h', 
+    # 2 for the fune-tuned model: 'wav2vec2-large-960h-cv'
+    $ python ../asr/asr_api.py -mi 2 
+  
+```
+3. **launch cv-decode.py to update cv-valid-test.csv with generated_text column**
+```bash
+    # -csv to specify the input csv file to be processed
+    # -af to specify the input audio folder to be processed
+    $ python ../asr/cv-decode.py -csv ./cv-valid-test/cv-valid-test.csv -af ./cv-valid-test   
+```
+
+4. **Performance evaluation in the last section of *cv-train-2a.ipynb*
+    Execute the cell after the section of **Performance evaluation for Fune-tuned model on dataset cv-valid-test.csv** 
+   
+---
+
+Task 4
+
+---

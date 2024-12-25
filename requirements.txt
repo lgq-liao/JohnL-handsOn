@@ -1,27 +1,19 @@
-#opencv-python
+notebook
+jupyterlab
+flask
+# torch --extra-index-url https://download.pytorch.org/whl/cu118
+torchaudio
+transformers
+datasets
+matplotlib
+librosa
+IPython
+requests
 sounddevice
 soundfile
-IPython
-librosa
-# pyaudio
-# webrtcvad
-#pyusb
-#click
-# autocorrect
-# pyenchant
-#jamspell
-#pyspellchecker
-# textblob
-# hnswlib
-aioconsole
-accelerate
---upgrade git+https://github.com/huggingface/transformers.git accelerate
-flash-attn --no-build-isolation
-#faster-whisper
-#playsound
-Flask requests
-# flair
-# fastapi
-# uvicorn
-#git+https://github.com/speechbrain/speechbrain.git@develop
-#https://github.com/pyannote/pyannote-audio/archive/refs/heads/develop.zip
+evaluate
+pandas
+scikit-learn
+jiwer
+transformers[torch]
+tensorboard

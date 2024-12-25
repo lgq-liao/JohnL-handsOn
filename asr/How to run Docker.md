@@ -31,7 +31,7 @@ To enable GPU support (CUDA) in your Docker container, you'll need to do the fol
 # 4. **Build the Docker image**
 
     ```bash
-    docker build -t asr_api .
+    docker build -t asr-api .
     ```
 
 # 5. **Running the Docker container with GPU support**: Once the `nvidia-docker` toolkit is installed, you can run your Docker container with GPU support by using the `--gpus` flag:
@@ -39,14 +39,14 @@ To enable GPU support (CUDA) in your Docker container, you'll need to do the fol
    ```bash
 
    # NOTE: need root privileges if not config docker in rootless mode
-   sudo docker run --gpus all --rm -p 8001:8001 asr_api # run with GPU
-   docker run --rm -p 8001:8001 asr_api            # run with CPU
+   sudo docker run --gpus all --rm -p 8001:8001 asr-api # run with GPU
+   docker run --rm -p 8001:8001 asr-api            # run with CPU
 
    # to check GPU available 
-   sudo docker run --rm --gpus all asr_api nvidia-smi
+   sudo docker run --rm --gpus all asr-api nvidia-smi
 
    # run in debug mode
-   sudo docker run --rm --gpus all -p 8001:8001 -it asr_api bash
+   sudo docker run --rm --gpus all -p 8001:8001 -it asr-api bash
    # (Optional) Verify PyTorch installation
    python3 -c "import torch; print(torch.cuda.is_available(), torch.version.cuda)"
 
