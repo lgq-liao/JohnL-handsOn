@@ -289,13 +289,13 @@ Here is the training result from the logged [training_log.csv](./asr-train/train
 - **Trend**: The WER shows a steady decline, starting from **0.0861** (8.61%) at epoch 0.58 to **0.0658** (6.58%) at epoch 2.92.
 - **Observation**: This is a clear indication that the model is becoming better at predicting and aligning text outputs with the expected ground truth over time.
 
-#### Performance comparison Orignal model `facebook/wav2vec2-large-960h` Vs `Fine-tuned` model by Error Rate (WER):
+#### Performance(WER) comparison Orignal model `facebook/wav2vec2-large-960h` Vs `Fine-tuned` model:
 
 
 ```bash
    $ cd xxx/JohnL-handsOn/asr-train
 
-   $python task4_performance_compare.py  -csv "../../common_voice/cv-valid-test.csv" -audio "../../common_voice/cv-valid-test" 
+   $python task4_performance_compare.py  -csv "../../common_voice/cv-valid-dev.csv" -audio "../../common_voice/cv-valid-dev" 
 ```
 **Noted**, change the `-csv` and `-audio` path to your actual one
 

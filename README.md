@@ -169,11 +169,35 @@ Alternatively, you can test it to use your own method,eg by curl
 ---
 
 # Task 4
-  Please refer to the [training-report.pdf](./training-report.pdf) for the details
+
+#### Performance(WER) comparison Orignal model `facebook/wav2vec2-large-960h` Vs `Fine-tuned` model:
+
+1. The WER comparison is as follows:
+   - `Orignal model`:
+      Overall WER: **10.82%**
+   - `Fine-tuned model`:
+      Overall WER: **7.32%**
+
+2. To run the following script to get the WER above
+```bash
+   $ cd xxx/JohnL-handsOn/asr-train
+
+   $python task4_performance_compare.py  -csv "../../common_voice/cv-valid-dev.csv" -audio "../../common_voice/cv-valid-dev" 
+```
+    **Noted**, change the `-csv` and `-audio` path to your actual one
+
+3. Please refer to the [training-report.pdf](./training-report.pdf) for the details
 
 ---
 
-# Task 5
-  Please refer to the [training-report.pdf](./training-report.pdf) for the details
+# Task 5a
+  Please refer to the [cv-hotword-5a.ipynb](./hotword-detection/cv-hotword-5a.ipynb) for the details
 
 ---
+
+# Task 5b
+
+---
+# Task 6
+
+Please refer to the [essay-ssl.pdf](./essay-ssl.pdf) for the details

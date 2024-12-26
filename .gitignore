@@ -34,6 +34,7 @@ cached_dataset/
 results/
 logs/
 wav2vec2-large-960h-cv-1000samples/
+wav2vec2-large-960h-cv/
 .vscode/
 README.pdf
 
