@@ -17,6 +17,7 @@ My NLP hand's on
 2. **installation**
 ```bash
     $ cd xxx/JohnL-handsOn/
+    $ chmod +x ./dependance_install.sh
     $ ./dependance_install.sh
 
 ```
@@ -113,7 +114,7 @@ Alternatively, you can test it to use your own method,eg by curl
         $ cd xxx/JohnL-handsOn/asr-train
         
         $ cp -r xxx/cv-valid-train ./ 
-        $ cp -r xxx/cv-valid-train.csv ./
+        $ cp xxx/cv-valid-train.csv ./
     ```
 
 2. **Run cv-train-2a.ipynb with notebook**
@@ -145,7 +146,7 @@ Alternatively, you can test it to use your own method,eg by curl
     $ cd xxx/JohnL-handsOn/asr-train
     
     $ cp -r xxx/cv-valid-test ./ 
-    $ cp -r xxx/cv-valid-test.csv ./cv-valid-test/
+    $ cp xxx/cv-valid-test.csv ./cv-valid-test/
 ```
 2. **Launch asr_aip & load the fune-tuning model with following commands**
 
