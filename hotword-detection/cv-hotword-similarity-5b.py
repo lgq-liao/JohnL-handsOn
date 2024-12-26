@@ -11,9 +11,17 @@ model_name = "hkunlp/instructor-large"
 tokenizer = AutoTokenizer.from_pretrained(model_name)
 model = AutoModel.from_pretrained(model_name)
 
+DEBUG = False
+THESHOLD=0.4  # Set threshold for similarity
+
 # Load the CSV file
-input_file = "cv-valid-dev.csv"
-output_file = "cv-valid-dev-with-similarity.csv"
+if DEBUG:
+    input_file = "detected.txt"
+    output_file = "./debug-detected.csv"
+else:
+    input_file = "../asr-train/cv-valid-dev_ft.csv"
+    output_file = "./cv-valid-dev.csv"
+
 df = pd.read_csv(input_file)
 
 # Hot words and embedding computation
@@ -45,9 +53,11 @@ def check_similarity(text):
         text_embedding = outputs.last_hidden_state.mean(dim=1).numpy()
 
     # Compute cosine similarity with each hot word embedding
-    for hot_word_embedding in hot_word_embeddings:
+    for index, hot_word_embedding in enumerate(hot_word_embeddings):
         similarity = cosine_similarity(text_embedding, hot_word_embedding.numpy().reshape(1, -1))
-        if similarity.max() > 0.8:  # Set threshold for similarity
+        if DEBUG:
+            print(text, hot_words[index], similarity)
+        if similarity.max() > THESHOLD:  # Set threshold for similarity
             return True
     return False
 
@@ -55,7 +65,7 @@ def check_similarity(text):
 
 
 # Iterate over rows and calculate similarity
-df["similarity"] = df["generated_text"].apply(lambda x: check_similarity(x))
+df["similarity"] = df["generated_text_ft"].apply(lambda x: check_similarity(x))
 
 # Save the updated CSV
 df.to_csv(output_file, index=False)

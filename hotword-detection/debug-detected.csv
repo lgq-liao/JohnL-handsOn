@@ -1,0 +1,16 @@
+filename,generated_text_ft,hot_word,similarity
+cv-valid-dev/sample-000000.mp3,be careful with your prognostications said the stranger,be careful,True
+cv-valid-dev/sample-000003.mp3,i thought that everything i owned would be destroyed,destroy,True
+cv-valid-dev/sample-000089.mp3,the stranger seemed satisfied with the answer,stranger,True
+cv-valid-dev/sample-000508.mp3,i had to test your courage the stranger said,stranger,True
+cv-valid-dev/sample-000674.mp3,i had to test your courage the stranger said,stranger,True
+cv-valid-dev/sample-001093.mp3,be careful with your prognostications said the stranger,be careful,True
+cv-valid-dev/sample-001101.mp3,the stranger was speaking of things that very few people knew about,stranger,True
+cv-valid-dev/sample-001243.mp3,the stranger was speaking of things that very few people knew about,stranger,True
+cv-valid-dev/sample-001501.mp3,i had to test your courage the stranger said,stranger,True
+cv-valid-dev/sample-001933.mp3,the stranger seemed satisfied with the answer,stranger,True
+cv-valid-dev/sample-002405.mp3,the stranger was speaking of things that verry few people knew about,stranger,True
+cv-valid-dev/sample-002453.mp3,i don't like people to do that because the sheep are afraid of strangers,stranger,False
+cv-valid-dev/sample-003065.mp3,the stranger withdrew the sword from the boy's forehead and the boy felt imtensely relieved,stranger,True
+cv-valid-dev/sample-003219.mp3,i had to test your courage the stranger said,stranger,True
+cv-valid-dev/sample-003808.mp3,i had to test your courage the stranger said,stranger,True

@@ -163,7 +163,8 @@ Alternatively, you can test it to use your own method,eg by curl
     $ python ../asr/cv-decode.py -csv ./cv-valid-test/cv-valid-test.csv -af ./cv-valid-test   
 ```
 
-4. **Performance evaluation in the last section of *cv-train-2a.ipynb*
+4. **Performance evaluation in the last section of `cv-train-2a.ipynb`**
+
     Execute the cell after the cell of **Performance evaluation for Fune-tuned model on dataset cv-valid-test.csv** 
    
 ---
@@ -196,6 +197,19 @@ Alternatively, you can test it to use your own method,eg by curl
 ---
 
 # Task 5b
+
+1.  Please refer to the [cv-hotword-similarity-5b.ipynb](./hotword-detection/cv-hotword-similarity-5b.ipynb) for the details
+
+2. To change the following threshold for similarity if desired
+```pthon
+    THESHOLD=0.4  # Set threshold for similarity
+```
+3. Turn on the following debug flag to use small dataset for debugging  
+
+```pthon
+    DEBUG = False
+```
+4.  Alternatively, you may run `cv-hotword-similarity-5b.py` to create the csv file
 
 ---
 # Task 6
