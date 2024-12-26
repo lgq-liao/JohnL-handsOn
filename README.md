@@ -133,7 +133,7 @@ Alternatively, you can test it to use your own method,eg by curl
     ```
 
     **Noted**: 
-    - the train dataset will be processed and catched once only, relaunch the train-cv.py for the training after the dataset cached.
+    - the train dataset will be processed and catched once only.
     - the fune-tuned model will be saved in folder **wav2vec2-large-960h-cv**
 
 ---
@@ -164,10 +164,16 @@ Alternatively, you can test it to use your own method,eg by curl
 ```
 
 4. **Performance evaluation in the last section of *cv-train-2a.ipynb*
-    Execute the cell after the section of **Performance evaluation for Fune-tuned model on dataset cv-valid-test.csv** 
+    Execute the cell after the cell of **Performance evaluation for Fune-tuned model on dataset cv-valid-test.csv** 
    
 ---
 
-Task 4
+# Task 4
+  Please refer to the [training-report.pdf](./training-report.pdf) for the details
+
+---
+
+# Task 5
+  Please refer to the [training-report.pdf](./training-report.pdf) for the details
 
 ---

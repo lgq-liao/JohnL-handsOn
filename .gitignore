@@ -33,8 +33,9 @@ cached_dataset/
 #train result and logs
 results/
 logs/
-
+wav2vec2-large-960h-cv-1000samples/
 .vscode/
+README.pdf
 
 # PyInstaller
 #  Usually these files are written by a python script from a template

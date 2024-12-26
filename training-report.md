@@ -49,8 +49,8 @@ This report documents the process of fine-tuning the pre-trained `facebook/wav2v
 - **Loss Function**: CTC Loss
 - **Optimization**: AdamW optimizer with weight decay 0.01.
 - **Precision**: Mixed precision (FP16).
-- **Checkpointing**: Models were saved every 500 steps(to change it as dirserd), with a maximum of 2 checkpoints retained.
-- **Evaluation**: Validation set evaluated every 100 steps(to change it as dirserd) using Word Error Rate (WER) as the primary metric.
+- **Checkpointing**: Models were saved every 500 steps(to change it if dirserd), with a maximum of 2 checkpoints retained.
+- **Evaluation**: Validation set evaluated every 100 steps(to change it if dirserd) using Word Error Rate (WER) as the primary metric.
 - **freeze encoder** `model.freeze_feature_encoder()`
 
 ### **2.5 Training Process**
@@ -288,6 +288,25 @@ Here is the training result from the logged [training_log.csv](./asr-train/train
 #### Word Error Rate (WER):
 - **Trend**: The WER shows a steady decline, starting from **0.0861** (8.61%) at epoch 0.58 to **0.0658** (6.58%) at epoch 2.92.
 - **Observation**: This is a clear indication that the model is becoming better at predicting and aligning text outputs with the expected ground truth over time.
+
+#### Performance comparison Orignal model `facebook/wav2vec2-large-960h` Vs `Fine-tuned` model by Error Rate (WER):
+
+
+```bash
+   $ cd xxx/JohnL-handsOn/asr-train
+
+   $python task4_performance_compare.py  -csv "../../common_voice/cv-valid-test.csv" -audio "../../common_voice/cv-valid-test" 
+```
+**Noted**, change the `-csv` and `-audio` path to your actual one
+
+It will print out the WER as follows:
+
+```bash
+   Orignal model perfromance:
+      Overall WER: 10.82%
+   Fine-tuned model performance:
+      Overall WER: 7.32%
+```
 
 ---
 

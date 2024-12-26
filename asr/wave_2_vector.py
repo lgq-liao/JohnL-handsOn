@@ -111,10 +111,10 @@ class wav2vec2_asr:
 
         if model_index == '2': # fune-tuned mode 
             curr_file_dir = pathlib.Path(__file__).resolve().parent
-            model_name = model_list.get(model_index, 'facebook/wav2vec2-large-robust-ft-libri-960h')
+            model_name = model_list.get(model_index, None)
             model_name = os.path.join(curr_file_dir.parent, 'asr-train', model_name)
         else:
-            model_name = model_list.get(model_index, 'facebook/wav2vec2-large-robust-ft-libri-960h')
+            model_name = model_list.get(model_index, None)
         print('++++++ Selected model: {}'.format(model_name))        
         
         if use_cpu:
